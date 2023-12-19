@@ -1,0 +1,5 @@
+<app-card title="Lista de Productos">
+    <app-table-expandable [dataSource]="dataSource" 
+               (editItem)="editarFactura($event)" (deleteItem)="eliminarFactura($event)" >
+    </app-table-expandable>
+  </app-card>

@@ -1,0 +1,15 @@
+<app-card title="Formulario de Producto">
+  <app-formulario-input
+    [fields]="fields_copy"
+    (formSubmitted)="formSubmit($event)"
+    (valorUnico)="onValorUnicoSeleccionado($event)"
+    (formReset)="formReset($event)"
+    [enviarFormulario]="enviarFormularios"
+    [resetFormulario]="resetearformularios"
+  ></app-formulario-input>
+
+
+
+
+  
+</app-card>

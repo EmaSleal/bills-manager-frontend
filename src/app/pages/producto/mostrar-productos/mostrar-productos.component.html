@@ -1,0 +1,5 @@
+<app-card title="Lista de Productos">
+    <app-table [dataSource]="dataSource" [displayedColumns]="displayedColumns" 
+               (editItem)="editarProducto($event)" (deleteItem)="eliminarProducto($event)">
+    </app-table>
+  </app-card>

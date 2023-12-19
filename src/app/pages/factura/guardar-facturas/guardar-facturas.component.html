@@ -1,0 +1,82 @@
+<app-card title="Formulario de Factura">
+  <ng-container>
+    <form [formGroup]="form">
+      <div class="campos-basicos">
+
+        <mat-form-field class="full-width" appearance="outline" color="primary">
+          <mat-label mat-raised-label>Fecha</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="fecha" [placeholder]="'Ingrese la fecha'" />
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="outline" color="primary">
+          <mat-label mat-raised-label>Teléfono</mat-label>
+          <input matInput formControlName="telefono" [placeholder]="'Ingrese el teléfono'" />
+        </mat-form-field>
+
+      </div>
+      <mat-form-field class="full-width" appearance="outline" color="primary">
+        <mat-label mat-raised-label>Dirección</mat-label>
+        <input matInput formControlName="direccion" [placeholder]="'Ingrese la dirección'" />
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="outline" color="primary">
+        <mat-label mat-raised-label>Nombre</mat-label>
+        <input matInput formControlName="nombreCliente" [placeholder]="'Ingrese el nombre'" />
+      </mat-form-field>
+
+      <app-autocomplete [suggestions]="dataSource" (selected)="onItemSelected($event)"></app-autocomplete>
+
+
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+            <th>Subtotal</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody formArrayName="lineaFacturas">
+          <tr *ngFor="let producto of lineaFacturas.controls; let i = index" [formGroupName]="i">
+            <td>
+              <mat-label>{{ producto.value.nombre }} {{ producto.value.presentacion }}</mat-label>
+            </td> 
+            <td>
+              <mat-form-field>
+                <mat-label>Cantidad</mat-label>
+                <input matInput type="number" min="1" max="100" formControlName="cantidad" (input)="calcularSubtotal(i, $event)">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-label>{{ producto.value.precio }}</mat-label>
+            </td>
+            <td>
+              <mat-label>{{ producto.value.cantidad * producto.value.precio }}</mat-label>
+            </td>
+            <td>
+              <button mat-raised-button class="btn btn-danger" (click)="removeProducto(i)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+
+
+     
+
+      <div class="button-container">
+        <button class="boton__registrar" mat-raised-button color="primary" (click)="onSubmit()">
+          Registrar
+        </button>
+        <button class="boton__limpiar" mat-raised-button color="accent" (click)="onReset()">
+          Limpiar
+        </button>
+      </div>
+    </form>
+  </ng-container>
+</app-card>
