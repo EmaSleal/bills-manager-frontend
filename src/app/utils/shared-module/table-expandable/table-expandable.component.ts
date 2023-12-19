@@ -20,7 +20,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 })
 export class TableExpandableComponent implements OnChanges {
 
-   displayedColumns =['nombreCliente', 'direccion', 'telefono', 'fecha','lineas','total', 'acciones'];
+   displayedColumns =['nombreCliente', 'direccion', 'telefono', 'fecha','lineas','pagado','entregado','total', 'acciones'];
    displayedColumns2 =['cantidad','nombre','precio','total']
   columnsToDisplayWithExpand =[...this.displayedColumns, 'expand']
   @Input() dataSource!: any[];

@@ -26,6 +26,13 @@
         <input matInput formControlName="nombreCliente" [placeholder]="'Ingrese el nombre'" />
       </mat-form-field>
 
+      <!--checkbox para pagado y entregado-->
+
+      <div class="checkbox-container">
+        <mat-checkbox formControlName="pagado" color="primary">Pagado</mat-checkbox>
+        <mat-checkbox formControlName="entregado" color="primary">Entregado</mat-checkbox>
+      </div>
+
       <app-autocomplete [suggestions]="dataSource" (selected)="onItemSelected($event)"></app-autocomplete>
 
 

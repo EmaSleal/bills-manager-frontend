@@ -9,6 +9,8 @@ export class Factura {
     //detalleFactura: DetalleFactura[]=[];
     total: number=0;
     lineas: number=0;
+    pagado: boolean=false;
+    entregado: boolean=false;
 }
 
 
