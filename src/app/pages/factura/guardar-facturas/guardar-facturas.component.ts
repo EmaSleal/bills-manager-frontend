@@ -4,6 +4,11 @@ import { Factura } from 'src/app/model/factura/factura';
 import { Producto } from 'src/app/model/producto/producto';
 import { FacturaService } from 'src/app/service/factura/factura.service';
 import { ProductoService } from 'src/app/service/producto/producto.service';
+import { Utils } from 'src/app/utils/utils';
+
+
+
+ 
 
 @Component({
   selector: 'app-guardar-facturas',
@@ -23,6 +28,7 @@ export class GuardarFacturasComponent implements OnInit {
 
   factura = Factura;
 
+
   form!: FormGroup;
 
   constructor(private fb: FormBuilder, private facturaService: FacturaService, private productoService: ProductoService) {
@@ -37,11 +43,15 @@ export class GuardarFacturasComponent implements OnInit {
       nombreCliente: ['', Validators.required],
       telefono: ['', Validators.required],
       direccion: ['', Validators.required],
+      pagado: ['' ],
+      entregado: [''],
       lineaFacturas: this.fb.array([]) 
     });
     this.productoService.getProductos().subscribe(data => {
       this.dataSource = data;
     });
+;
+
   }
 
   onSubmit() {

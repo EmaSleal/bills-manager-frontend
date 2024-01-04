@@ -22,4 +22,7 @@ export class FacturaService {
     return this.http.post(`${baseUrl}/facturas`, factura);
   }
 
+  public editarFactura(factura: any) {
+    return this.http.put(`${baseUrl}/facturas/${factura.id}`, factura);
+  }
 }

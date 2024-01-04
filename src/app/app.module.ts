@@ -16,6 +16,7 @@ import { BodyComponent } from './utils/shared-module/body/body.component';
 import {MatCardModule} from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { SharedModule } from './utils/shared-module/shared-module.module';
+import { LoginComponent } from './utils/shared-module/login/login.component';
 
 @NgModule({
   declarations: [

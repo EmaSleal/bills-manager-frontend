@@ -6,13 +6,15 @@ import { MostrarFacturasComponent } from './mostrar-facturas/mostrar-facturas.co
 import { GuardarFacturasComponent } from './guardar-facturas/guardar-facturas.component';
 import { MostrarFacturaComponent } from './mostrar-factura/mostrar-factura.component';
 import { SharedModule } from 'src/app/utils/shared-module/shared-module.module';
+import { EditarFacturaComponent } from './editar-factura/editar-factura.component';
 
 
 @NgModule({
   declarations: [
     MostrarFacturasComponent,
     GuardarFacturasComponent,
-    MostrarFacturaComponent
+    MostrarFacturaComponent,
+    EditarFacturaComponent
   ],
   imports: [
     CommonModule,

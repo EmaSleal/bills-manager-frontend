@@ -8,6 +8,7 @@ import baseUrl from '../helper';
 })
 export class ProductoService {
 
+
   constructor(private http: HttpClient) { }
 
   public getProductos() {
@@ -22,5 +23,8 @@ export class ProductoService {
     return this.http.post(`${baseUrl}/productos`, producto);
   }
 
+  public editarProducto(producto: any) {
+    return this.http.put(`${baseUrl}/productos/${producto.id}`, producto);
+  }
 
 }

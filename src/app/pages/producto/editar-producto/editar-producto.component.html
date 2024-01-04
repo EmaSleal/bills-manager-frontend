@@ -1,0 +1,51 @@
+<app-card title="Editar Producto">
+
+
+<div class="editar-producto-container">
+
+    <!-- Encabezado del modal -->
+    <h2>Editar Producto</h2>
+  
+    <!-- Formulario del producto -->
+    <form class="campos" [formGroup]="formularioProducto" (ngSubmit)="guardarCambios()">
+  
+      <!-- Campo de Nombre -->
+      <mat-form-field>
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="nombre" placeholder="Nombre del producto">
+      </mat-form-field>
+  
+      <!-- Campo de Precio -->
+      <mat-form-field>
+        <mat-label>Precio</mat-label>
+        <input matInput formControlName="precio" placeholder="Precio del producto">
+      </mat-form-field>
+  
+      <!-- Campo de Descripción -->
+      <mat-form-field>
+        <mat-label>Descripción</mat-label>
+        <input matInput formControlName="descripcion" placeholder="Descripción del producto">
+      </mat-form-field>
+  
+      <!-- Campo de Estado -->
+      <mat-form-field>
+        <mat-label>Estado</mat-label>
+        <input matInput formControlName="estado" placeholder="Estado del producto">
+      </mat-form-field>
+  
+      <!-- Campo de Presentación -->
+      <mat-form-field>
+        <mat-label>Presentación</mat-label>
+        <input matInput formControlName="presentacion" placeholder="Presentación del producto">
+      </mat-form-field>
+  
+      <!-- Botones del modal -->
+      <div class="editar-producto-buttons">
+        <button mat-button (click)="cerrarModal()">Cancelar</button>
+        <button mat-button type="submit">Guardar Cambios</button>
+      </div>
+  
+    </form>
+  
+  </div>
+    </app-card>

@@ -27,22 +27,24 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { TableSeleccionadoComponent } from './table-seleccionado/table-seleccionado.component';
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
-import {MatListModule} from '@angular/material/list';
+import { MatListModule } from '@angular/material/list';
 import { TableExpandableComponent } from './table-expandable/table-expandable.component';
+import { LoginComponent } from './login/login.component';
+import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   declarations: [
     CardComponent,
     TableComponent,
     FormularioInputComponent,
 
-
     ToolbarComponent,
-      TableSeleccionadoComponent,
-      AutocompleteComponent,
-      TableExpandableComponent,
+    TableSeleccionadoComponent,
+    AutocompleteComponent,
+    TableExpandableComponent,
+    LoginComponent,
   ],
   imports: [
     CommonModule,
@@ -67,6 +69,8 @@ import { TableExpandableComponent } from './table-expandable/table-expandable.co
     MatNativeDateModule,
     MatGridListModule,
     MatListModule,
+    MatDialogModule,
+    
   ],
   exports: [
     CommonModule,
@@ -98,6 +102,8 @@ import { TableExpandableComponent } from './table-expandable/table-expandable.co
     AutocompleteComponent,
     MatListModule,
     TableExpandableComponent,
+    LoginComponent,
+    MatDialogModule
   ],
 })
 export class SharedModule {}

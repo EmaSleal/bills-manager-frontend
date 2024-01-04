@@ -6,13 +6,15 @@ import { GuardarProductoComponent } from './guardar-producto/guardar-producto.co
 import { MostrarProductoComponent } from './mostrar-producto/mostrar-producto.component';
 import { MostrarProductosComponent } from './mostrar-productos/mostrar-productos.component';
 import { SharedModule } from 'src/app/utils/shared-module/shared-module.module';
+import { EditarProductoComponent } from './editar-producto/editar-producto.component';
 
 
 @NgModule({
   declarations: [
     GuardarProductoComponent,
     MostrarProductoComponent,
-    MostrarProductosComponent
+    MostrarProductosComponent,
+    EditarProductoComponent
   ],
   imports: [
     CommonModule,

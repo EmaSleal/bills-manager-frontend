@@ -1,0 +1,55 @@
+
+
+<app-card title="Editar Factura">
+
+
+    <div class="editar-producto-container">
+
+        <!-- Formulario del producto -->
+        <form class="campos" [formGroup]="formularioFactura" (ngSubmit)="guardarCambios()">
+
+            <!-- Campo de Fecha -->
+            <mat-form-field>
+                <mat-label>Fecha</mat-label>
+                <input matInput formControlName="fecha" placeholder="Fecha de la factura">
+            </mat-form-field>
+
+            <!-- Campo de Nombre -->
+            <mat-form-field>
+                <mat-label>Nombre</mat-label>
+                <input matInput formControlName="nombreCliente" placeholder="Nombre del cliente">
+            </mat-form-field>
+
+            <!-- Campo de Dirección -->
+            <mat-form-field>
+                <mat-label>Dirección</mat-label>
+                <input matInput formControlName="direccion" placeholder="Dirección del cliente">
+            </mat-form-field>
+
+            <!-- Campo de Teléfono -->
+            <mat-form-field>
+                <mat-label>Teléfono</mat-label>
+                <input matInput formControlName="telefono" placeholder="Teléfono del cliente">
+            </mat-form-field>
+
+            <!-- Campo de Pagado -->
+            <mat-form-field>
+                <mat-label>Pagado</mat-label>
+                <input matInput formControlName="pagado" placeholder="Pagado">
+            </mat-form-field>
+
+            <!-- Campo de Entregado -->
+            <mat-form-field>
+                <mat-label>Entregado</mat-label>
+                <input matInput formControlName="entregado" placeholder="Entregado">
+            </mat-form-field>
+
+            <!-- Botones del modal -->
+            <div class="editar-factura-buttons">
+                <button mat-button (click)="cerrarModal()">Cancelar</button>
+                <button mat-button type="submit">Guardar Cambios</button>
+            </div>
+
+        </form>
+    </div>
+</app-card>

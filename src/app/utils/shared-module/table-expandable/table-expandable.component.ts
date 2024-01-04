@@ -24,20 +24,29 @@ export class TableExpandableComponent implements OnChanges {
    displayedColumns2 =['cantidad','nombre','precio','total']
   columnsToDisplayWithExpand =[...this.displayedColumns, 'expand']
   @Input() dataSource!: any[];
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+
   @Output() editItem: EventEmitter<any> = new EventEmitter<any>();
   @Output() deleteItem: EventEmitter<any> = new EventEmitter<any>();
 
   tableDataSource!: MatTableDataSource<any>;
   expandedElement: Factura | undefined;
 
+  fechaHoyFilter: Date = new Date();
+  fechaInicioFilter: Date = new Date();
+  fechaFinFilter: Date = new Date();
+
   constructor() {
     this.tableDataSource = new MatTableDataSource(this.dataSource);
+    
   }
 
   ngOnChanges() {
     this.tableDataSource = new MatTableDataSource(this.dataSource);
+    this.tableDataSource.paginator = this.paginator;
+    this.tableDataSource.sort = this.sort;
   }
 
   applyFilter(event: Event) {
@@ -61,5 +70,28 @@ export class TableExpandableComponent implements OnChanges {
     this.deleteItem.emit(row);
   }
 
+  applyFechaHoyFilter() {
+    this.tableDataSource.filter = '';
+
+    if (this.fechaHoyFilter) {
+      const hoy = new Date().toLocaleDateString();
+      this.tableDataSource.data = this.dataSource.filter(item => {
+        const fechaItem = new Date(item.fecha).toLocaleDateString();
+        return fechaItem === hoy;
+      });
+    }
+  }
+
+  // Nuevo método para aplicar el filtro de rango de fechas
+  applyFechaRangoFilter() {
+    this.tableDataSource.filter = '';
+
+    if (this.fechaInicioFilter && this.fechaFinFilter) {
+      this.tableDataSource.data = this.dataSource.filter(item => {
+        const fechaItem = new Date(item.fecha);
+        return fechaItem >= this.fechaInicioFilter! && fechaItem <= this.fechaFinFilter!;
+      });
+    }
+  }
 
 }

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Factura } from 'src/app/model/factura/factura';
 import { FacturaService } from 'src/app/service/factura/factura.service';
+import { EditarFacturaComponent } from '../editar-factura/editar-factura.component';
 
 @Component({
   selector: 'app-mostrar-facturas',
@@ -11,7 +13,7 @@ export class MostrarFacturasComponent {
   displayedColumns: string[] = ['nombreCliente', 'direccion', 'telefono', 'fecha','lineas','total', 'acciones'];
   dataSource: Factura[] = [];
 
-  constructor(private facturaService: FacturaService) { }
+  constructor(private facturaService: FacturaService, private dialog: MatDialog) { }
 
   ngOnInit() {
     this.facturaService.getFacturas().subscribe(data => {
@@ -27,8 +29,19 @@ export class MostrarFacturasComponent {
 
   // Puedes implementar funciones adicionales para editar y eliminar facturas si es necesario
   editarFactura(factura: Factura) {
-    // Implementa la lógica para editar la factura correspondiente
-    console.log('Editar factura:', factura);
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true; // El modal no se puede cerrar haciendo clic fuera de él
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = { factura }; // Puedes pasar datos al componente del modal si es necesario
+
+    // Abre el modal
+    const dialogRef = this.dialog.open(EditarFacturaComponent, dialogConfig);
+
+    // Suscríbete a eventos del modal si es necesario
+    dialogRef.afterClosed().subscribe((result) => {
+      // Lógica después de cerrar el modal (si es necesario)
+      console.log('Modal cerrado con resultado:', result);
+    });
   }
 
   eliminarFactura(factura: Factura) {

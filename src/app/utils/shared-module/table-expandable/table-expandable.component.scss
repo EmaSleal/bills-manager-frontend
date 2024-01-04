@@ -22,3 +22,34 @@ table {
   tr.example-detail-row {
     height: 0;
   }
+
+  table {
+    width: 100%;
+  }
+  
+  .mat-mdc-form-field {
+    font-size: 14px;
+
+  }
+  
+  td, th {
+    width: 25%;
+  }
+
+  .table-container {
+    overflow-x: auto;
+    width: 100%;
+  }
+
+  .filter-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .filtro-fecha-rango__container {
+    display: flex;
+    align-items: center;
+    margin: 1rem 1rem 0 0;
+  }

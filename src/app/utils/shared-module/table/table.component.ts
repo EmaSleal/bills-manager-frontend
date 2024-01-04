@@ -42,6 +42,8 @@ export class TableComponent implements OnInit, AfterViewInit, OnChanges {
 
   ngOnChanges() {
     this.tableDataSource = new MatTableDataSource(this.dataSource);
+    this.tableDataSource.paginator = this.paginator;
+    this.tableDataSource.sort = this.sort;
   }
 
   editarFila(row: any) {
